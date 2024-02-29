@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='boostrap.min.css') }}" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="one mt-4">Welcome Mahasiswa</h3>
+                <!-- button untuk tambah mahasiswa, logout, dan halaman matkul -->
+                <a href="/mahasiswa" class="btn btn-primary mt-2 mb-4" role="button">Tambah Mahasiswa</a>
+                <a href="/" class="btn btn-info mt-2 mb-4" role="button">Logout</a>
+                <a href="/mahasiswa/mata_kuliah" class="btn btn-primary mt-2 mb-4 float-right" role="button">Halaman Mata Kuliah</a>
+
+                <table class="table">
+                    <!-- pembuatan tabel pada halaman web -->
+                    <thead>
+                        <tr>
+                            <th scope="col">Nama</th>
+                            <th scope="col">NPM</th>
+                            <th scope="col">Jurusan</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <!-- looping untuk mengambil data dari database MySQL -->
+                    <tbody>
+                        {% for m in mahasiswa %}
+                        <tr>
+                            <td>{{ m[0] }}</td>
+                            <td>{{ m[1] }}</td>
+                            <td>{{ m[2] }}</td>
+
+                            <td>
+                                <!-- tombol aksi untuk edit/hapus data -->
+                                <a href="/mahasiswa/edit/{{ m[1] }}" class="btn btn-warning" role="button">Edit</a>
+                                <a href="/mahasiswa/hapus/{{ m[1] }}" class="btn btn-danger" role="button"
+                                    onclick="return confirm('Yakin menghapus data ini?')">Hapus</a>
+                            </td>
+                        </tr>
+                        <!-- akhir dari looping -->
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

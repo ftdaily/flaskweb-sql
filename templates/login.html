@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"> -->
+    <style>
+        .container-new {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* CSS untuk memperlebar kotak input dan menambahkan border */
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #3f3f3f; /* Warna border */
+            border-radius: 5px; /* Border radius */
+            box-sizing: border-box; /* Box sizing */
+            margin-bottom: 15px; /* Margin bottom */
+        }
+    </style>
+</head>
+
+<!-- dibuat container agar terlihat rapih di tengah2 -->
+<body>
+    <div class="container-fluid">
+        <div class="container-new">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="{{ url_for('login') }}" method="POST">
+                        <!-- kotak untuk input email -->
+                        <div class="mb-3 mt-3">
+                            <label for="" email="email" class="form-label">Email: </label>
+                            <input type="email" class="form-control" placeholder="Input Email" name="Email">
+                        </div>
+                        <!-- kotak untuk input password -->
+                        <div class="mb-3">
+                            <label for="" password="password" class="form-label">Password: </label>
+                            <input type="password" class="form-control" placeholder="Input Password" name="Password">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
